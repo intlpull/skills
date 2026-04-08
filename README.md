@@ -21,22 +21,48 @@ It performs real-time **Threat Modeling** before suggesting any refactor, ensuri
 
 ## 📦 Installation
 
-This skill follows the [Agent Skills Standard](https://github.com/anthropics/agent-skills).
-
-### Option 1: Via `@intlpullhq/skill` CLI (Recommended)
-This package includes a CLI to install the skill to various AI agents (Claude Code, Cursor, Windsurf, etc.).
+### Option 1: Via skills.sh (Recommended — works with all AI agents)
 
 ```bash
-# Run the installer
-npx @intlpullhq/skill
+npx skills add intlpull/skills
 ```
 
-### Option 2: Manual Installation
-Copy the `SKILL.md` file to your skills directory (e.g., `.claude/skills/`).
+This installs the skill into your active AI agent (Claude Code, Cursor, Windsurf, Gemini CLI, and more). Tracked on the [skills.sh leaderboard](https://skills.sh/intlpull/skills/intlpull-localization).
+
+### Option 2: Via `@intlpullhq/skills` npm package
+
 ```bash
+npx @intlpullhq/skills
+```
+
+Interactive installer — detects installed agents and symlinks the skill automatically.
+
+### Option 3: Manual Installation
+
+Copy `SKILL.md` directly into your agent's skills directory:
+
+```bash
+# Claude Code
+mkdir -p ~/.claude/skills/intlpull-localization
+curl -o ~/.claude/skills/intlpull-localization/SKILL.md \
+  https://raw.githubusercontent.com/intlpull/skills/main/SKILL.md
+
+# Or copy from this repo
 mkdir -p .claude/skills/intlpull-localization
-cp packages/skill/SKILL.md .claude/skills/intlpull-localization/SKILL.md
+cp SKILL.md .claude/skills/intlpull-localization/SKILL.md
 ```
+
+### Supported Agents
+
+| Agent | Config Dir | Auto-detected |
+|-------|-----------|---------------|
+| Claude Code | `~/.claude/skills/` | ✅ |
+| Antigravity | `~/.gemini/antigravity/skills/` | ✅ |
+| Cursor | `~/.cursor/skills/` | ✅ |
+| Windsurf | `~/.codeium/windsurf/skills/` | ✅ |
+| Gemini CLI | `~/.gemini/skills/` | ✅ |
+| Amp | `~/.amp/skills/` | ✅ |
+| Kiro | `~/.kiro/skills/` | ✅ |
 
 ## 💡 Usage Examples
 
@@ -49,7 +75,7 @@ Once installed, Claude becomes your **Localization Engineer**.
 1.  Scans the file for string literals.
 2.  Filters out CSS classes, IDs, and logic values.
 3.  Proposes a `useTranslation` refactor.
-4.   Generates the corresponding JSON key-value pairs.
+4.  Generates the corresponding JSON key-value pairs.
 
 ### 2. The "fix" Prompt
 > "I have some missing keys in the Spanish translation file."
@@ -71,7 +97,7 @@ npx @intlpullhq/cli fix --source en --target es
 > "Check if I missed any hardcoded strings in the settings page."
 
 **Claude's Action**:
-Updates the CLI to scan specifically for that path (if supported) or manually reviews the code against its "Safe Extraction" rules.
+Manually reviews the code against the "Safe Extraction" rules and flags anything that should be internationalized.
 
 ## 🛡️ Best Practices Enforced
 
@@ -83,6 +109,15 @@ Updates the CLI to scan specifically for that path (if supported) or manually re
 
 -   **Agent refactoring CSS?**: The skill has strict negative constraints. If you see this, please report it!
 -   **CLI not working?**: Ensure `@intlpullhq/cli` is installed in your project: `npm i -D @intlpullhq/cli`.
+-   **Skill not loading?**: Verify the `SKILL.md` is at `~/.agents/skills/intlpull-localization/SKILL.md` or in your agent's specific skills dir.
+
+## Links
+
+- 🌐 [IntlPull Website](https://intlpull.com)
+- 📦 [npm Package](https://www.npmjs.com/package/@intlpullhq/skills)
+- 🏆 [skills.sh Listing](https://skills.sh/intlpull/skills/intlpull-localization)
+- 🐙 [GitHub Repository](https://github.com/intlpull/skills)
+- 📖 [CLI Docs](https://intlpull.com/docs/cli)
 
 ## License
 MIT
