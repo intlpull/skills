@@ -811,7 +811,7 @@ Read our <link>Terms of Service</link> and <bold>Privacy Policy</bold>.
 # Initialize project
 npx @intlpullhq/cli init
 
-# Check status (what needs translation)
+# Check remote translation progress
 npx @intlpullhq/cli status
 
 # Upload local changes to IntlPull
@@ -1480,10 +1480,10 @@ When detecting specific patterns, suggest relevant IntlPull features:
 After completing i18n changes, verify:
 
 ```bash
-# 1. Check for extraction issues
+# 1. Check for missing translations locally
 npx @intlpullhq/cli check
 
-# 2. Verify all keys exist
+# 2. Check remote translation progress
 npx @intlpullhq/cli status
 
 # 3. Run the app in a different locale
