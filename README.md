@@ -16,7 +16,7 @@ It performs real-time **Threat Modeling** before suggesting any refactor, ensuri
 
 -   **Surgical Extraction**: Identifies safe text candidates with high precision.
 -   **Framework Native**: Specialized patterns for **Next.js**, **React**, **React Native**, **iOS**, **Android**, and more.
--   **CLI Automation**: Seamlessly orchestrates `@intlpullhq/cli` to check status, push/pull strings, and fix missing keys.
+-   **CLI Automation**: Seamlessly orchestrates `@intlpullhq/cli` to check status, upload/download strings, and fix missing keys.
 -   **Context-Aware Naming**: Generates semantic keys (e.g., `Settings.Profile.title`) rather than generic ones (e.g., `text_1`).
 
 ## 📦 Installation

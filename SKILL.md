@@ -91,8 +91,8 @@ Add these scripts to your `package.json`:
 ```json
 {
   "scripts": {
-    "i18n:push": "intlpull push",
-    "i18n:pull": "intlpull pull",
+    "i18n:upload": "intlpull upload",
+    "i18n:download": "intlpull download",
     "i18n:sync": "intlpull sync" // Local development
   }
 }
@@ -814,26 +814,23 @@ npx @intlpullhq/cli init
 # Check status (what needs translation)
 npx @intlpullhq/cli status
 
-# Push local changes to IntlPull
-npx @intlpullhq/cli push
+# Upload local changes to IntlPull
+npx @intlpullhq/cli upload
 
-# Pull translations from IntlPull
-npx @intlpullhq/cli pull
+# Download translations from IntlPull
+npx @intlpullhq/cli download
 
-# Bidirectional sync with watch mode
-npx @intlpullhq/cli sync --watch
-
-# Scan codebase for extractable strings
-npx @intlpullhq/cli scan
+# Watch for translation updates (live sync)
+npx @intlpullhq/cli listen
 
 # Fix: auto-generate missing keys
 npx @intlpullhq/cli fix --dry-run  # Preview first!
 npx @intlpullhq/cli fix
 
 # Migrate from competitors
-npx @intlpullhq/cli migrate --from lokalise --api-key KEY
-npx @intlpullhq/cli migrate --from crowdin --api-key KEY
-npx @intlpullhq/cli migrate --from phrase --api-key KEY
+npx @intlpullhq/cli migrate from lokalise --api-key KEY
+npx @intlpullhq/cli migrate from crowdin --api-key KEY
+npx @intlpullhq/cli migrate from phrase --api-key KEY
 ```
 
 ---
@@ -1507,8 +1504,8 @@ npx @intlpullhq/cli status
 # 7. Verify accessibility
 # VoiceOver (iOS), TalkBack (Android), NVDA (Windows)
 
-# 8. Push to IntlPull
-npx @intlpullhq/cli push
+# 8. Upload to IntlPull
+npx @intlpullhq/cli upload
 ```
 
 ---
