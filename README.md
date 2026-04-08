@@ -57,7 +57,14 @@ Once installed, Claude becomes your **Localization Engineer**.
 **Claude's Action**:
 Runs the CLI to identify and autofill missing keys:
 ```bash
-npx @intlpullhq/cli fix --missing
+# Preview what would be fixed
+npx @intlpullhq/cli fix --dry-run
+
+# Auto-fix missing translations (defaults to source: en)
+npx @intlpullhq/cli fix
+
+# Fix for a specific target language
+npx @intlpullhq/cli fix --source en --target es
 ```
 
 ### 3. The "Audit" Prompt
